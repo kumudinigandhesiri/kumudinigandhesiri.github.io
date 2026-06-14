@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ── PRIMARY META ── -->
+  <title>Kumudini Gandesiri – Hardware & Systems Engineer</title>
+  <meta name="description" content="Hardware Lab Technician & Systems Engineer with hands-on experience at AMD and Apple. Expert in SoC validation, RF testing, failure analysis, PCB systems, and test automation. Open to Hardware, Semiconductor, and Business Analysis roles." />
+  <meta name="keywords" content="Hardware Engineer, Lab Technician, SoC Validation, RF Testing, Failure Analysis, Semiconductor, PCB, Embedded Systems, Python Automation, AMD, Apple, Business Analyst, Cupertino CA" />
+  <meta name="author" content="Kumudini Gandesiri" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://kumudini100.github.io/" />
+
+  <!-- ── OPEN GRAPH (LinkedIn / Slack previews) ── -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://kumudini100.github.io/" />
+  <meta property="og:title" content="Kumudini Gandesiri – Hardware & Systems Engineer" />
+  <meta property="og:description" content="Hardware Lab Technician at AMD. Previously Apple. Expert in SoC validation, RF testing, failure analysis, and test automation. Open to new opportunities." />
+  <meta property="og:image" content="https://kumudini100.github.io/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:site_name" content="Kumudini Gandesiri Portfolio" />
+
+  <!-- ── TWITTER CARD ── -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Kumudini Gandesiri – Hardware & Systems Engineer" />
+  <meta name="twitter:description" content="Hardware Lab Technician at AMD. Previously Apple. SoC validation, RF testing, failure analysis, and test automation." />
+  <meta name="twitter:image" content="https://kumudini100.github.io/og-image.png" />
+
+  <!-- ── FAVICON (inline SVG as data URI) ── -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231B4FD8'/%3E%3Ctext x='16' y='22' font-family='system-ui' font-weight='700' font-size='14' fill='white' text-anchor='middle'%3EKG%3C/text%3E%3C/svg%3E" />
+  <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231B4FD8'/%3E%3Ctext x='16' y='22' font-family='system-ui' font-weight='700' font-size='14' fill='white' text-anchor='middle'%3EKG%3C/text%3E%3C/svg%3E" />
+
+  <!-- ── FONTS ── -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <!-- ── GOOGLE ANALYTICS ── -->
+  <!-- Replace G-XXXXXXXXXX with your real Measurement ID from analytics.google.com -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX', { anonymize_ip: true });
+
+    // Track resume download
+    function trackResume() {
+      gtag('event', 'resume_download', { event_category: 'engagement', event_label: 'Resume PDF' });
+    }
+    // Track contact link clicks
+    function trackContact(type) {
+      gtag('event', 'contact_click', { event_category: 'engagement', event_label: type });
+    }
+  </script>
+
+  <!-- ── STRUCTURED DATA (JSON-LD for Google) ── -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Kumudini Gandesiri",
+    "jobTitle": "Hardware Lab Technician",
+    "description": "Hardware Lab Technician & Systems Engineer with experience at AMD and Apple. Expert in SoC validation, RF testing, failure analysis, and test automation.",
+    "email": "kumudinigandhesiri@gmail.com",
+    "telephone": "+19253151110",
+    "address": { "@type": "PostalAddress", "addressLocality": "Cupertino", "addressRegion": "CA", "addressCountry": "US" },
+    "url": "https://kumudini100.github.io/",
+    "sameAs": ["https://www.linkedin.com/in/kumudini100/"],
+    "alumniOf": [
+      { "@type": "CollegeOrUniversity", "name": "Northwest Missouri State University" },
+      { "@type": "CollegeOrUniversity", "name": "Jawaharlal Nehru Technological University" }
+    ],
+    "worksFor": { "@type": "Organization", "name": "AMD (Advanced Micro Devices)" },
+    "knowsAbout": ["SoC Validation", "RF Testing", "Failure Analysis", "PCB Systems", "Python Automation", "FMEA", "Embedded Systems"]
+  }
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #F7F7F5;
+      --surface: #FFFFFF;
+      --ink: #1A1A1A;
+      --ink-muted: #6B6B6B;
+      --ink-faint: #ADADAD;
+      --accent: #1B4FD8;
+      --accent-soft: #EBF0FF;
+      --accent-mid: #3B6BF5;
+      --border: #E4E4E0;
+      --tag-bg: #F0F0EC;
+      --green: #0D7A55;
+      --green-bg: #EDFAF5;
+      --radius: 10px;
+      --max: 860px;
+      --mono: 'DM Mono', monospace;
+      --sans: 'DM Sans', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.65;
+      font-size: 15px;
+    }
+
+    /* ── SCROLL ANIMATIONS ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(247,247,245,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: var(--mono);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--ink);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+      align-items: center;
+    }
+    .nav-links a {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--ink-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+    .nav-resume-btn {
+      font-family: var(--sans);
+      font-size: 12.5px;
+      font-weight: 600;
+      background: var(--accent);
+      color: #fff !important;
+      padding: 6px 14px;
+      border-radius: 6px;
+      transition: background 0.2s, transform 0.15s !important;
+    }
+    .nav-resume-btn:hover { background: var(--accent-mid) !important; transform: translateY(-1px); }
+
+    /* ── LAYOUT ── */
+    .container {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    section { padding: 72px 0; }
+    section + section { border-top: 1px solid var(--border); }
+
+    /* ── HERO ── */
+    #hero {
+      padding: 96px 0 80px;
+      border-bottom: 1px solid var(--border);
+    }
+    .hero-eyebrow {
+      font-family: var(--mono);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+    .hero-name {
+      font-size: clamp(36px, 6vw, 54px);
+      font-weight: 600;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+      color: var(--ink);
+    }
+    .hero-title {
+      font-size: 18px;
+      font-weight: 400;
+      color: var(--ink-muted);
+      margin-bottom: 28px;
+      max-width: 580px;
+      line-height: 1.6;
+    }
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 36px;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 5px 14px;
+      font-size: 12.5px;
+      font-weight: 500;
+      color: var(--ink-muted);
+    }
+    .badge.active {
+      background: var(--accent-soft);
+      border-color: #C5D5FF;
+      color: var(--accent);
+    }
+    .badge-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--green);
+      flex-shrink: 0;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(0.85); }
+    }
+    .hero-cta {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 22px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.18s;
+      cursor: pointer;
+      border: none;
+      font-family: var(--sans);
+    }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-primary:hover { background: var(--accent-mid); transform: translateY(-1px); box-shadow: 0 4px 16px rgba(27,79,216,0.25); }
+    .btn-secondary { background: var(--surface); color: var(--ink); border: 1px solid var(--border); }
+    .btn-secondary:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); }
+    .btn-outline { background: transparent; color: var(--accent); border: 1.5px solid var(--accent); }
+    .btn-outline:hover { background: var(--accent-soft); transform: translateY(-1px); }
+
+    /* ── SECTION HEADINGS ── */
+    .section-label {
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-size: 26px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin-bottom: 40px;
+    }
+
+    /* ── ROLES STRIP ── */
+    .roles-strip {
+      background: var(--green-bg);
+      border: 1px solid #B6EDD9;
+      border-radius: 8px;
+      padding: 12px 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 32px;
+      font-size: 13px;
+      color: var(--green);
+      font-weight: 500;
+    }
+
+    /* ── ABOUT ── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+    .about-text p {
+      color: var(--ink-muted);
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+    .about-text p:last-child { margin-bottom: 0; }
+    .about-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .stat-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      transition: border-color 0.2s;
+    }
+    .stat-card:hover { border-color: #C5D5FF; }
+    .stat-number {
+      font-size: 28px;
+      font-weight: 600;
+      color: var(--ink);
+      letter-spacing: -0.02em;
+    }
+    .stat-label { font-size: 12px; color: var(--ink-muted); margin-top: 4px; }
+
+    /* ── EXPERIENCE ── */
+    .exp-list { display: flex; flex-direction: column; gap: 20px; }
+    .exp-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .exp-card:hover {
+      border-color: #C5D5FF;
+      box-shadow: 0 4px 24px rgba(27,79,216,0.07);
+    }
+    .exp-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 6px;
+      flex-wrap: wrap;
+    }
+    .exp-company {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+    .exp-role { font-size: 17px; font-weight: 600; color: var(--ink); }
+    .exp-meta { text-align: right; flex-shrink: 0; }
+    .exp-date { font-family: var(--mono); font-size: 12px; color: var(--ink-muted); }
+    .exp-location { font-size: 12px; color: var(--ink-faint); margin-top: 2px; }
+    .exp-divider { height: 1px; background: var(--border); margin: 16px 0; }
+    .exp-bullets { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+    .exp-bullets li {
+      display: flex;
+      gap: 10px;
+      font-size: 13.5px;
+      color: var(--ink-muted);
+      line-height: 1.6;
+    }
+    .exp-bullets li::before {
+      content: "→";
+      color: var(--accent);
+      flex-shrink: 0;
+      font-size: 12px;
+      margin-top: 2px;
+    }
+
+    /* ── SKILLS ── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 16px;
+    }
+    .skill-group {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px 22px;
+      transition: border-color 0.2s;
+    }
+    .skill-group:hover { border-color: #C5D5FF; }
+    .skill-group-title {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 12px;
+    }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .skill-tag {
+      background: var(--tag-bg);
+      border-radius: 5px;
+      padding: 4px 10px;
+      font-size: 12.5px;
+      font-weight: 500;
+      color: var(--ink-muted);
+    }
+
+    /* ── CERTIFICATIONS ── */
+    .certs-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: -12px;
+    }
+    .cert-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 16px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--ink-muted);
+    }
+    .cert-icon { font-size: 16px; }
+
+    /* ── EDUCATION ── */
+    .edu-list { display: flex; flex-direction: column; gap: 16px; }
+    .edu-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      transition: border-color 0.2s;
+    }
+    .edu-card:hover { border-color: #C5D5FF; }
+    .edu-degree { font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 4px; }
+    .edu-school { font-size: 13.5px; color: var(--ink-muted); }
+    .edu-note { font-size: 12px; color: var(--ink-faint); margin-top: 4px; }
+    .edu-year { font-family: var(--mono); font-size: 12.5px; color: var(--ink-muted); white-space: nowrap; }
+
+    /* ── RESUME CTA BANNER ── */
+    .resume-banner {
+      background: linear-gradient(135deg, var(--accent) 0%, #2563EB 100%);
+      border-radius: var(--radius);
+      padding: 32px 36px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-bottom: 72px;
+    }
+    .resume-banner-text { color: #fff; }
+    .resume-banner-title { font-size: 18px; font-weight: 600; margin-bottom: 4px; }
+    .resume-banner-sub { font-size: 13.5px; opacity: 0.82; }
+    .btn-white {
+      background: #fff;
+      color: var(--accent);
+      font-weight: 600;
+    }
+    .btn-white:hover { background: #f0f4ff; transform: translateY(-1px); }
+
+    /* ── CONTACT ── */
+    .contact-wrap {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 56px 48px;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+    .contact-heading { font-size: 26px; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 12px; }
+    .contact-sub { color: var(--ink-muted); line-height: 1.7; }
+    .contact-links { display: flex; flex-direction: column; gap: 12px; }
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 18px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      text-decoration: none;
+      color: var(--ink);
+      font-size: 14px;
+      font-weight: 500;
+      transition: all 0.18s;
+    }
+    .contact-link:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
+    .contact-link-icon { font-size: 16px; width: 20px; text-align: center; }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 28px 24px;
+      text-align: center;
+      font-size: 12px;
+      color: var(--ink-faint);
+      font-family: var(--mono);
+    }
+    .footer-links { display: flex; justify-content: center; gap: 20px; margin-top: 8px; }
+    .footer-links a { color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--accent); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      .about-grid, .contact-grid { grid-template-columns: 1fr; }
+      .about-stats { grid-template-columns: 1fr 1fr; }
+      .exp-header { flex-direction: column; }
+      .exp-meta { text-align: left; }
+      .contact-wrap { padding: 36px 24px; }
+      .resume-banner { padding: 24px; }
+      .nav-links li:not(:last-child) { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── NAV ── -->
+  <nav role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a class="nav-logo" href="#hero" aria-label="Home">KG</a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li>
+          <a class="nav-resume-btn" href="Kumudini_Gandesiri_Resume.pdf" download onclick="trackResume()">
+            ↓ Resume
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <section id="hero" aria-label="Introduction">
+    <div class="container">
+      <div class="hero-eyebrow reveal">Hardware · Semiconductor · Systems · Analytics</div>
+      <h1 class="hero-name reveal reveal-delay-1">Kumudini<br>Gandesiri</h1>
+      <p class="hero-title reveal reveal-delay-2">Hardware Lab Technician & Systems Engineer with hands-on experience at AMD and Apple, specializing in SoC validation, RF testing, failure analysis, and test automation.</p>
+
+      <div class="roles-strip reveal reveal-delay-2">
+        <span class="badge-dot" aria-hidden="true"></span>
+        Open to roles in Hardware Engineering · Lab Technician · Semiconductor · Business Analysis
+      </div>
+
+      <div class="hero-badges reveal reveal-delay-3">
+        <span class="badge active"><span class="badge-dot" aria-hidden="true"></span>AMD – Current</span>
+        <span class="badge">Apple Inc – Alumni</span>
+        <span class="badge">Cupertino, CA</span>
+        <span class="badge">MS – Information Systems</span>
+      </div>
+
+      <div class="hero-cta reveal reveal-delay-3">
+        <a class="btn btn-primary" href="mailto:kumudinigandhesiri@gmail.com" onclick="trackContact('email')">
+          ✉ Get in Touch
+        </a>
+        <a class="btn btn-outline" href="Kumudini_Gandesiri_Resume.pdf" download onclick="trackResume()">
+          ↓ Download Resume
+        </a>
+        <a class="btn btn-secondary" href="#experience">
+          View Experience ↓
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ABOUT ── -->
+  <section id="about" aria-label="About">
+    <div class="container">
+      <div class="section-label">Profile</div>
+      <h2 class="section-title">About Me</h2>
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <p>I'm a hardware and systems professional with a background spanning SoC validation, RF testing, PCB rework, and failure analysis. I've built and maintained engineering labs at two of the world's most demanding hardware companies — AMD and Apple — where precision and reliability aren't optional.</p>
+          <p>My work bridges hands-on lab operations and data-driven engineering: I write Python and shell scripts to automate test workflows, apply methodologies like FMEA, SPC, and 8D root cause analysis, and produce structured reports that hold up in engineering audits.</p>
+          <p>I hold a Master's in Management and Information Systems, which positions me equally well for roles in business analysis, IT systems, and operations — wherever technical depth meets organizational impact.</p>
+        </div>
+        <div class="about-stats reveal reveal-delay-1">
+          <div class="stat-card">
+            <div class="stat-number">3+</div>
+            <div class="stat-label">Years of Industry Experience</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">2</div>
+            <div class="stat-label">Fortune 500 Companies</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">x86 & SoC</div>
+            <div class="stat-label">Validation Platforms</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">RF + FA</div>
+            <div class="stat-label">Testing Specializations</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── EXPERIENCE ── -->
+  <section id="experience" aria-label="Work Experience">
+    <div class="container">
+      <div class="section-label">Career</div>
+      <h2 class="section-title">Experience</h2>
+      <div class="exp-list">
+
+        <div class="exp-card reveal">
+          <div class="exp-header">
+            <div>
+              <div class="exp-company">AMD — Advanced Micro Devices</div>
+              <div class="exp-role">Hardware Lab Technician – x86 &amp; SoC Validation</div>
+            </div>
+            <div class="exp-meta">
+              <div class="exp-date">Oct 2025 – Present</div>
+              <div class="exp-location">San Jose, CA</div>
+            </div>
+          </div>
+          <div class="exp-divider"></div>
+          <ul class="exp-bullets">
+            <li>Operate and maintain engineering validation labs supporting x86 and SoC platforms, ensuring continuous system uptime and lab infrastructure readiness in a high-throughput hardware development environment.</li>
+            <li>Perform power testing and electrical characterization using oscilloscopes, DMMs, DAQ systems, and power analyzers across operating conditions consistent with CMOS and DRAM characterization workflows.</li>
+            <li>Execute BIOS configuration and low-level platform bring-up; conduct systematic root cause investigation using FMEA and 8D problem-solving frameworks.</li>
+            <li>Develop Python and shell scripts to automate data collection, measurement workflows, and test reporting, aligned with SPC and FDC principles.</li>
+            <li>Produce structured test reports documenting procedures, measurement results, and debug findings with full hardware configuration traceability for engineering review.</li>
+          </ul>
+        </div>
+
+        <div class="exp-card reveal reveal-delay-1">
+          <div class="exp-header">
+            <div>
+              <div class="exp-company">Apple Inc</div>
+              <div class="exp-role">Test Engineering Technician – Embedded Systems &amp; Hardware</div>
+            </div>
+            <div class="exp-meta">
+              <div class="exp-date">Jun 2024 – Oct 2025</div>
+              <div class="exp-location">Santa Clara, CA</div>
+            </div>
+          </div>
+          <div class="exp-divider"></div>
+          <ul class="exp-bullets">
+            <li>Collaborated with global teams on silicon validation and reliability analysis from NPI through post-ramp stages, supporting Apple SoC and device architecture programs.</li>
+            <li>Performed RF testing and signal analysis using oscilloscopes, DMMs, signal generators, network analyzers, and spectrum analyzers across multiple test technologies.</li>
+            <li>Executed electrical and physical failure analysis using SEM, optical microscope, curve tracer, and differential probes; authored detailed technical investigation reports.</li>
+            <li>Automated data parsing with Python and Excel to identify root cause patterns, reducing manual analysis time and improving failure isolation accuracy.</li>
+            <li>Contributed to lab efficiency improvements, SOP updates, and new tool evaluations; provided 24/7 support partnering with cross-regional teams during critical validation cycles.</li>
+          </ul>
+        </div>
+
+        <div class="exp-card reveal reveal-delay-2">
+          <div class="exp-header">
+            <div>
+              <div class="exp-company">Team Engineers Pvt Ltd</div>
+              <div class="exp-role">Engineering Technician – Embedded Systems &amp; Hardware Support</div>
+            </div>
+            <div class="exp-meta">
+              <div class="exp-date">Jul 2022 – Jan 2023</div>
+              <div class="exp-location">Hyderabad, India</div>
+            </div>
+          </div>
+          <div class="exp-divider"></div>
+          <ul class="exp-bullets">
+            <li>Performed electrical and physical failure analysis to identify device and board-level issues using SEM, curve tracers, and microscopes.</li>
+            <li>Skilled in precision soldering of ultra-small SMD components (0201 package) and THT rework using microscope-assisted techniques.</li>
+            <li>Generated consolidated investigation reports outlining failure modes and root causes; collaborated with engineering teams on product and process development.</li>
+            <li>Maintained ESD and lab safety compliance; contributed continuous improvement suggestions for workflow and equipment processes.</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SKILLS ── -->
+  <section id="skills" aria-label="Technical Skills">
+    <div class="container">
+      <div class="section-label">Capabilities</div>
+      <h2 class="section-title">Technical Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-group reveal">
+          <div class="skill-group-title">Failure Analysis</div>
+          <div class="skill-tags">
+            <span class="skill-tag">SEM</span><span class="skill-tag">Curve Tracer</span>
+            <span class="skill-tag">Optical Microscope</span><span class="skill-tag">DMM</span>
+            <span class="skill-tag">RF Testing</span><span class="skill-tag">Network Analyzer</span>
+            <span class="skill-tag">Spectrum Analyzer</span><span class="skill-tag">Power Meter</span>
+          </div>
+        </div>
+        <div class="skill-group reveal reveal-delay-1">
+          <div class="skill-group-title">Test &amp; Automation</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Python</span><span class="skill-tag">PyVisa</span>
+            <span class="skill-tag">Shell Scripting</span><span class="skill-tag">Oscilloscope</span>
+            <span class="skill-tag">Logic Analyzers</span><span class="skill-tag">DAQ Systems</span>
+            <span class="skill-tag">Serial Comms</span>
+          </div>
+        </div>
+        <div class="skill-group reveal reveal-delay-2">
+          <div class="skill-group-title">Hardware Platforms</div>
+          <div class="skill-tags">
+            <span class="skill-tag">x86</span><span class="skill-tag">SoC Validation</span>
+            <span class="skill-tag">PCBs</span><span class="skill-tag">Microcontrollers</span>
+            <span class="skill-tag">Embedded Systems</span><span class="skill-tag">BIOS Config</span>
+            <span class="skill-tag">CMOS / DRAM</span>
+          </div>
+        </div>
+        <div class="skill-group reveal">
+          <div class="skill-group-title">Methodologies</div>
+          <div class="skill-tags">
+            <span class="skill-tag">FMEA</span><span class="skill-tag">8D Root Cause</span>
+            <span class="skill-tag">SPC</span><span class="skill-tag">FDC</span>
+            <span class="skill-tag">DOE</span><span class="skill-tag">NPI</span>
+          </div>
+        </div>
+        <div class="skill-group reveal reveal-delay-1">
+          <div class="skill-group-title">Platforms &amp; Tools</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Linux / Ubuntu</span><span class="skill-tag">RHEL</span>
+            <span class="skill-tag">macOS</span><span class="skill-tag">Git</span>
+            <span class="skill-tag">JIRA</span><span class="skill-tag">Confluence</span>
+            <span class="skill-tag">JMP</span><span class="skill-tag">Excel</span>
+          </div>
+        </div>
+        <div class="skill-group reveal reveal-delay-2">
+          <div class="skill-group-title">Soldering &amp; Lab</div>
+          <div class="skill-tags">
+            <span class="skill-tag">SMD / SMT</span><span class="skill-tag">Through-Hole (THT)</span>
+            <span class="skill-tag">0201 Package</span><span class="skill-tag">Board Rework</span>
+            <span class="skill-tag">ESD Compliance</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Certifications -->
+      <div style="margin-top: 36px;">
+        <div class="section-label" style="margin-bottom: 16px;">Certifications</div>
+        <div class="certs-row">
+          <div class="cert-badge reveal"><span class="cert-icon">🏅</span> Apple Lab Safety</div>
+          <div class="cert-badge reveal reveal-delay-1"><span class="cert-icon">⚡</span> ESD Compliance</div>
+          <div class="cert-badge reveal reveal-delay-2"><span class="cert-icon">🐍</span> Python for Data Analysis</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── EDUCATION ── -->
+  <section id="education" aria-label="Education">
+    <div class="container">
+      <div class="section-label">Academic Background</div>
+      <h2 class="section-title">Education</h2>
+      <div class="edu-list">
+        <div class="edu-card reveal">
+          <div>
+            <div class="edu-degree">Master of Science – Management &amp; Information Systems</div>
+            <div class="edu-school">Northwest Missouri State University · Maryville, MO, USA</div>
+            <div class="edu-note">Data Analytics · IT Management · System Integration</div>
+          </div>
+          <div class="edu-year">Aug 2024</div>
+        </div>
+        <div class="edu-card reveal reveal-delay-1">
+          <div>
+            <div class="edu-degree">Bachelor of Technology – Electronics &amp; Communication Engineering</div>
+            <div class="edu-school">Jawaharlal Nehru Technological University · Hyderabad, India</div>
+          </div>
+          <div class="edu-year">Jun 2022</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── RESUME BANNER ── -->
+  <div class="container">
+    <div class="resume-banner reveal">
+      <div class="resume-banner-text">
+        <div class="resume-banner-title">Want the full picture?</div>
+        <div class="resume-banner-sub">Download my resume for complete details on experience, projects, and certifications.</div>
+      </div>
+      <a class="btn btn-white" href="Kumudini_Gandesiri_Resume.pdf" download onclick="trackResume()">
+        ↓ Download Resume (PDF)
+      </a>
+    </div>
+  </div>
+
+  <!-- ── CONTACT ── -->
+  <section aria-label="Contact" style="padding: 0 0 72px;">
+    <div class="container">
+      <div class="contact-wrap reveal">
+        <div class="contact-grid">
+          <div>
+            <div class="section-label">Let's Connect</div>
+            <div class="contact-heading">Open to New Opportunities</div>
+            <p class="contact-sub">I'm actively exploring roles in hardware engineering, semiconductor validation, lab operations, and business/data analysis. If you have a position that fits, I'd love to hear from you.</p>
+          </div>
+          <div class="contact-links">
+            <a class="contact-link" href="mailto:kumudinigandhesiri@gmail.com" onclick="trackContact('email')">
+              <span class="contact-link-icon">✉</span>
+              kumudinigandhesiri@gmail.com
+            </a>
+            <a class="contact-link" href="tel:+19253151110" onclick="trackContact('phone')">
+              <span class="contact-link-icon">📞</span>
+              +1 (925) 315-1110
+            </a>
+            <a class="contact-link" href="https://www.linkedin.com/in/kumudini100/" target="_blank" rel="noopener noreferrer" onclick="trackContact('linkedin')">
+              <span class="contact-link-icon">in</span>
+              linkedin.com/in/kumudini100
+            </a>
+            <a class="contact-link" href="Kumudini_Gandesiri_Resume.pdf" download onclick="trackResume()">
+              <span class="contact-link-icon">📄</span>
+              Download Resume (PDF)
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div>© 2026 Kumudini Gandesiri · Cupertino, CA</div>
+    <div class="footer-links">
+      <a href="mailto:kumudinigandhesiri@gmail.com">Email</a>
+      <a href="https://www.linkedin.com/in/kumudini100/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="Kumudini_Gandesiri_Resume.pdf" download onclick="trackResume()">Resume</a>
+      <a href="sitemap.xml">Sitemap</a>
+    </div>
+  </footer>
+
+  <!-- ── SCROLL REVEAL SCRIPT ── -->
+  <script>
+    (function() {
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+      // Observe all reveal elements
+      document.querySelectorAll('.reveal').forEach(function(el) {
+        observer.observe(el);
+      });
+
+      // Active nav link highlighting
+      var sections = document.querySelectorAll('section[id], #hero');
+      var navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+      var scrollObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            navLinks.forEach(function(link) {
+              link.style.color = '';
+              if (link.getAttribute('href') === '#' + entry.target.id) {
+                link.style.color = 'var(--accent)';
+              }
+            });
+          }
+        });
+      }, { threshold: 0.4 });
+      sections.forEach(function(s) { scrollObserver.observe(s); });
+    })();
+  </script>
+
+</body>
+</html>
