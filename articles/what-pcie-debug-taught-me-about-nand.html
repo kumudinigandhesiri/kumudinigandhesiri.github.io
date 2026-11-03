@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>What PCIe debug taught me to look for in NAND | Kumudini Gandesiri</title>
+<meta name="description" content="Learning notes on NAND margin, wear, and SSD debug from a hardware validation professional with a PCIe bring-up background." />
+<meta name="author" content="Kumudini Gandesiri" />
+<link rel="canonical" href="https://kumudinigandhesiri.github.io/articles/what-pcie-debug-taught-me-about-nand.html" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://kumudinigandhesiri.github.io/articles/what-pcie-debug-taught-me-about-nand.html" />
+<meta property="og:title" content="What PCIe debug taught me to look for in NAND" />
+<meta property="og:description" content="Learning notes on NAND margin, wear, and SSD debug from a hardware validation professional with a PCIe bring-up background." />
+<meta property="og:image" content="https://kumudinigandhesiri.github.io/og-image.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="article.css" />
+</head>
+<body>
+<nav class="top" aria-label="Main"><div><a href="../">Kumudini Gandesiri</a><a href="../#writing">All writing</a></div></nav>
+<header class="title"><div><h1>What PCIe debug taught me to look for in NAND</h1><p class="byline">Kumudini Gandesiri, November 2026</p></div></header>
+<main>
+<p class="note">These are my learning notes. My hands-on experience is in PCIe bring-up and hardware validation, not NAND or SSD products.</p>
+
+<p>When a PCIe link fails outright, you know where you stand. A marginal link is harder because it can train and still cause trouble. As I started learning about NAND, that same idea kept coming up. A flash cell doesn't simply work or fail either. It sits somewhere inside a margin, and that margin changes over the life of the device.</p>
+
+<h2>A bit stored as a voltage</h2>
+<p>NAND stores data as the threshold voltage of a cell. To read it, the device works out which voltage range the cell falls in. Storing more bits per cell means dividing the available range into more states:</p>
+<table>
+<thead><tr><th scope="col">Cell type</th><th scope="col">Bits per cell</th><th scope="col">Voltage states</th></tr></thead>
+<tbody>
+<tr><td>SLC</td><td>1</td><td>2</td></tr>
+<tr><td>MLC</td><td>2</td><td>4</td></tr>
+<tr><td>TLC</td><td>3</td><td>8</td></tr>
+<tr><td>QLC</td><td>4</td><td>16</td></tr>
+</tbody>
+</table>
+<p>That table looked familiar to me. More states packed into a limited window means less room between them, and less room for a voltage to shift before it reads as the wrong value. It's the same kind of tradeoff you see when an eye diagram closes.</p>
+
+<h2>What moves the voltage</h2>
+<p>Three effects stood out as I read:</p>
+<ul>
+<li><strong>Wear:</strong> program and erase cycles gradually damage cells.</li>
+<li><strong>Retention:</strong> stored charge can leak away over time, which shifts the threshold voltage.</li>
+<li><strong>Read disturb:</strong> reading one row can shift the voltages of unread cells in other rows of the same block. <a href="https://ar5iv.labs.arxiv.org/html/1805.03283">Research by Cai and colleagues</a> found that the effect is stronger in cells with more program and erase cycles, so these problems can compound.</li>
+</ul>
+<p>The compounding is what interests me most. It means a single measurement on a new part says little about behavior late in its life. You need to test across conditions, which is what I did when I swept DRAM timing across voltage corners.</p>
+
+<h2>Check the link first</h2>
+<p>If an SSD seems slow, my PCIe background says to rule out the link before blaming the drive. In the output of <code>lspci -vv</code>, <code>LnkCap</code> shows what the device can support, and <code>LnkSta</code> shows what was actually negotiated. If the status shows fewer lanes or a lower speed than the capability, the drive is running on a reduced link.</p>
+<p>A correct link doesn't prove the drive is healthy, and <code>LnkSta</code> doesn't measure real throughput. It's just a quick check that removes one possible cause, and that's how most good debugging starts.</p>
+
+<h2>Performance has a history</h2>
+<p>This is where SSDs differ most from the links I'm used to. Flash can't be updated in place, so new data is written elsewhere. Later, garbage collection reclaims space by moving the valid pages out of a block and erasing it. <a href="https://cacm.acm.org/?p=227516">Erasing takes several milliseconds</a>, which is far longer than a page read or write.</p>
+<p>So my working assumption is that an SSD's performance depends partly on what has been written to it before, not only on the test currently running. If I saw latency spikes in a test, background garbage collection is one of the first things I'd want to investigate. I haven't measured this myself yet, and that's what I plan to test next.</p>
+
+<h2>How the interface helps</h2>
+<p>NVMe was designed for this kind of fast storage. It uses separate submission and completion queues, and it <a href="https://www.thomas-krenn.com/en/wiki/NVMe_basics">supports up to 64K I/O queues with 64K commands each</a>. Queues can be assigned per CPU core, which suits multi-core systems. That's why I expect queue depth and workload pattern to matter as much as headline speed when analyzing results.</p>
+
+<h2>What I'd check on a slow SSD</h2>
+<table>
+<thead><tr><th scope="col">Question</th><th scope="col">Where I'd start</th></tr></thead>
+<tbody>
+<tr><td>Did the link negotiate correctly?</td><td><code>lspci -vv</code>, comparing <code>LnkCap</code> and <code>LnkSta</code></td></tr>
+<tr><td>Is the host seeing errors?</td><td><code>dmesg</code> and <code>journalctl</code></td></tr>
+<tr><td>Is the drive reporting health problems?</td><td><code>nvme smart-log</code></td></tr>
+<tr><td>Does the workload change the result?</td><td><code>fio</code> runs with different block sizes and queue depths</td></tr>
+<tr><td>Did behavior change over time?</td><td>Latency plotted across the run, not just the average</td></tr>
+</tbody>
+</table>
+<p>The first two checks are part of my daily work. The others are what I want to practice next. Whatever the component, the method stays the same: rule out one layer at a time, measure instead of guessing, and write down what you found so the next person can use it.</p>
+
+<h2>Sources</h2>
+<ul>
+<li><a href="https://ar5iv.labs.arxiv.org/html/1805.03283">Read Disturb Errors in MLC NAND Flash Memory</a>, Cai et al.</li>
+<li><a href="https://cacm.acm.org/?p=227516">Communications of the ACM paper on garbage collection and data placement in SSDs</a></li>
+<li><a href="https://www.thomas-krenn.com/en/wiki/NVMe_basics">NVMe basics</a>, Thomas-Krenn wiki</li>
+<li><a href="https://shop.zimaspace.com/pages/zimaos-check-nvme-pcie-link-speed-lspci-nvme-cli">Checking NVMe PCIe link speed with lspci and nvme-cli</a>, ZimaSpace</li>
+</ul>
+<p class="back"><a href="../#writing">Back to all writing</a></p>
+</main>
+</body>
+</html>

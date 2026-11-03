@@ -171,6 +171,7 @@ tbody td { font-size: 17px; line-height: 1.5; }
 /* Projects */
 .notes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 40px; }
 .note { border-top: 3px solid var(--mask); padding-top: 12px; }
+.note h3 a { color: var(--mask); }
 .note h3 { font-family: var(--cond); font-size: 25px; font-weight: 600; line-height: 1.12; }
 .note-stack { font-family: var(--sans); font-size: 15px; color: var(--muted); margin-top: 4px; }
 .note p:last-child { font-size: 17px; margin-top: 8px; }
@@ -241,6 +242,7 @@ footer { background: var(--mask-deep); color: var(--mask-text); font-family: var
       <li><a href="#fit">Role fit</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#projects">Projects</a></li>
+      <li><a href="#writing">Writing</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#education">Education</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -303,7 +305,7 @@ footer { background: var(--mask-deep); color: var(--mask-text); font-family: var
         <tr><th scope="row">Documentation</th><td>Wrote test documentation, defect reports, and board change records, plus requirements, database design, and testing documents for a Python and SQL system.</td></tr>
         <tr><th scope="row">Cross-functional communication</th><td>Presented root-cause findings from electrical and physical failure analysis to engineering teams.</td></tr>
         <tr><th scope="row">AI-enabled engineering</th><td>Built a Google Cloud Generative AI agent that screens DDR2 to DDR5 benchmark data against spec limits and reports pass rates.</td></tr>
-        <tr class="gap"><th scope="row">NAND and SSD knowledge</th><td>This is my growth area. I haven't worked on NAND or SSD products yet. My closest experience is PCIe, DRAM timing, and wafer defect analysis.</td></tr>
+        <tr class="gap"><th scope="row">NAND and SSD knowledge</th><td>This is my growth area. I haven't worked on NAND or SSD products yet. My closest experience is PCIe, DRAM timing, and wafer defect analysis, and I'm <a href="#writing">writing about what I learn</a>.</td></tr>
       </tbody>
     </table>
   </div>
@@ -391,6 +393,27 @@ footer { background: var(--mask-deep); color: var(--mask-text); font-family: var
         <h3>Fab Production Scheduling and Capacity Optimization System</h3>
         <p class="note-stack">Python, SQL, Snowflake, Streamlit, Power BI, Git</p>
         <p>Dashboards on simulated wafer-lot data that track throughput, cycle time, and WIP, with automated data validation and exception reports.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="writing" aria-labelledby="writing-title">
+  <div class="wrap band-grid">
+    <div>
+      <h2 id="writing-title">Writing</h2>
+      <p class="band-note">What I'm learning about memory, and why it interests me.</p>
+    </div>
+    <div class="notes">
+      <article class="note">
+        <h3><a href="articles/why-i-want-to-work-on-memory.html">Why I want to work on memory</a></h3>
+        <p class="note-stack">Career note</p>
+        <p>How chasing marginal PCIe links and spec drift led me toward NAND and SSD applications engineering.</p>
+      </article>
+      <article class="note">
+        <h3><a href="articles/what-pcie-debug-taught-me-about-nand.html">What PCIe debug taught me to look for in NAND</a></h3>
+        <p class="note-stack">Learning notes</p>
+        <p>Margin, wear, and a step-by-step way to check a slow SSD, starting from what I already know.</p>
       </article>
     </div>
   </div>

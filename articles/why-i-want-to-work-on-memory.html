@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Why I want to work on memory | Kumudini Gandesiri</title>
+<meta name="description" content="How PCIe bring-up, test data analysis, and DRAM side projects led a hardware validation professional toward NAND and SSD applications engineering." />
+<meta name="author" content="Kumudini Gandesiri" />
+<link rel="canonical" href="https://kumudinigandhesiri.github.io/articles/why-i-want-to-work-on-memory.html" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://kumudinigandhesiri.github.io/articles/why-i-want-to-work-on-memory.html" />
+<meta property="og:title" content="Why I want to work on memory" />
+<meta property="og:description" content="How PCIe bring-up, test data analysis, and DRAM side projects led a hardware validation professional toward NAND and SSD applications engineering." />
+<meta property="og:image" content="https://kumudinigandhesiri.github.io/og-image.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="article.css" />
+</head>
+<body>
+<nav class="top" aria-label="Main"><div><a href="../">Kumudini Gandesiri</a><a href="../#writing">All writing</a></div></nav>
+<header class="title"><div><h1>Why I want to work on memory</h1><p class="byline">Kumudini Gandesiri, November 2026</p></div></header>
+<main>
+<p>My job is getting PCIe links up on new ASIC platforms. Nothing in that description says memory. But two of my personal projects are about DRAM, and a third analyzes wafer defect maps. When your free-time work keeps pointing in one direction, it's worth asking why.</p>
+
+<h2>The question I keep asking</h2>
+<p>The answer I've landed on is margin. In hardware validation, "does it work?" is only the first question. The more useful one is "how close is it to not working?"</p>
+<p>At AMD, I analyze link training data and Linux logs to find the root cause of marginal links and errors. At Apple, I monitored test parameters with control limits, Cpk, and SPC charts to flag anything drifting toward a spec limit. In both jobs, the interesting failures were the ones that hadn't fully happened yet.</p>
+<p>That's also why I built my DRAM Timing Margin Analyzer. It takes setup and hold sweep data, calculates the margin at each point, and flags results within 15% of the spec limit across voltage corners. A pass/fail answer would have been simpler to produce, but it would have hidden the most useful information.</p>
+
+<h2>Why memory fits that question</h2>
+<p>Memory makes margin hard to ignore. A NAND cell stores data as a threshold voltage, so a digital bit depends on an analog value staying within range. As I've read more about it, I've found that much of what happens inside an SSD exists to keep that range under control across wear, time, and heavy use.</p>
+<p>An SSD also brings together many things I already enjoy working with: a PCIe link, a controller, firmware, DRAM on many designs, and a large amount of test data. I'd like to learn how those pieces behave together as one product.</p>
+
+<h2>Why applications engineering</h2>
+<p>The part of my work I find most satisfying is turning a messy pile of logs and measurements into an explanation other people can act on. Applications engineering is built around that same skill: understanding the technical detail, then making it clear to the customers and teams who depend on it.</p>
+<p>I'm also interested in how AI can help with this work. My DRAM Spec-Limit Screening Agent, built with Google Cloud Generative AI, screens open-source DDR2 to DDR5 benchmark data against spec limits and reports pass rates. I'd like to apply that kind of tool to technical analysis and knowledge sharing.</p>
+
+<h2>What I still need to learn</h2>
+<p>I haven't worked on NAND or SSD products yet. I'm starting from adjacent experience, and I want to be clear about that. Next on my list is a hands-on NVMe test on Linux, using <code>fio</code> and <code>nvme-cli</code>, and writing up the results like an application note.</p>
+<p>In the meantime, I've written up <a href="what-pcie-debug-taught-me-about-nand.html">how my PCIe debug habits apply to what I'm learning about NAND</a>.</p>
+<p class="back"><a href="../#writing">Back to all writing</a></p>
+</main>
+</body>
+</html>

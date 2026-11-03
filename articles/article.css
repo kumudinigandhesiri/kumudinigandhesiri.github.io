@@ -1,0 +1,28 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --mask: #0C4A45; --mask-deep: #083632; --mask-text: #C9E0DA; --gold: #E9B65C; --ink: #15232A; --muted: #4F5F66; --rule: #CBD5D4; --tint: #EDF3F1; }
+html { scroll-behavior: smooth; }
+body { background: #fff; color: var(--ink); font-family: 'Source Serif 4', Georgia, serif; font-size: 19px; line-height: 1.65; }
+a { color: var(--mask); text-underline-offset: 3px; }
+a:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+.top { background: var(--mask-deep); }
+.top div { max-width: 760px; margin: 0 auto; padding: 0 24px; height: 56px; display: flex; align-items: center; justify-content: space-between; gap: 16px; font-family: 'Barlow', Arial, sans-serif; font-size: 15px; }
+.top a { color: #fff; text-decoration: none; }
+.top a:first-child { font-family: 'Barlow Condensed', Arial, sans-serif; font-size: 20px; font-weight: 600; white-space: nowrap; }
+header.title { background: var(--mask); color: #fff; padding: 56px 0 48px; }
+header.title div, main { max-width: 760px; margin: 0 auto; padding-left: 24px; padding-right: 24px; }
+h1 { font-family: 'Barlow Condensed', Arial, sans-serif; font-size: clamp(42px, 8vw, 68px); font-weight: 700; line-height: 1; }
+.byline { font-family: 'Barlow', Arial, sans-serif; font-size: 16px; color: var(--mask-text); margin-top: 16px; }
+main { padding-top: 48px; padding-bottom: 72px; }
+main p { margin-top: 18px; }
+main p:first-child { margin-top: 0; }
+h2 { font-family: 'Barlow Condensed', Arial, sans-serif; font-size: 32px; font-weight: 600; line-height: 1.1; margin-top: 44px; }
+ul { margin: 14px 0 0 22px; }
+li { margin-top: 8px; }
+code { font-family: Consolas, Menlo, monospace; font-size: .85em; background: var(--tint); padding: 1px 4px; border-radius: 2px; overflow-wrap: anywhere; }
+table { width: 100%; border-collapse: collapse; margin-top: 18px; font-family: 'Barlow', Arial, sans-serif; font-size: 17px; }
+th, td { text-align: left; vertical-align: top; padding: 10px 14px 10px 0; border-bottom: 1px solid var(--rule); }
+thead th { font-size: 15px; font-weight: 600; color: var(--muted); }
+.note { background: var(--tint); padding: 16px 18px; margin-top: 18px; }
+.back { margin-top: 44px; font-family: 'Barlow', Arial, sans-serif; font-size: 16px; }
+@media (max-width: 640px) { body { font-size: 18px; } header.title { padding: 40px 0 36px; } .top div, header.title div, main { padding-left: 16px; padding-right: 16px; } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
