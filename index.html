@@ -94,7 +94,10 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--gold); outline-
 .nav-links .nav-resume:hover { color: var(--mask-deep); background: #F3CB83; }
 
 /* Hero */
-.hero { background: var(--mask); color: #fff; padding: 64px 0 56px; }
+.hero { background: var(--mask); color: #fff; padding: 40px 0 56px; }
+.hero-top { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 40px; align-items: end; }
+.hero-text { padding: 24px 0 56px; }
+.portrait { display: block; width: auto; height: 460px; }
 .hero h1 { font-family: var(--cond); font-weight: 700; font-size: clamp(64px, 11.5vw, 132px); line-height: .92; letter-spacing: -.01em; }
 .hero-lead { font-size: clamp(20px, 2.2vw, 24px); line-height: 1.45; max-width: 34em; margin-top: 24px; color: #fff; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; font-family: var(--sans); }
@@ -105,7 +108,7 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--gold); outline-
 .btn-line:hover { background: var(--mask-deep); }
 
 /* Interactive SSD map */
-.map { margin-top: 56px; padding-top: 28px; border-top: 1px solid var(--mask-line); }
+.map { padding-top: 28px; border-top: 1px solid var(--mask-line); }
 .map h2 { font-family: var(--cond); font-size: 30px; font-weight: 600; line-height: 1.15; }
 .map-intro { color: var(--mask-text); font-size: 17px; max-width: 40em; margin-top: 6px; }
 .map-body { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr); gap: 32px; margin-top: 24px; align-items: stretch; }
@@ -192,13 +195,17 @@ footer { background: var(--mask-deep); color: var(--mask-text); font-family: var
 @media (max-width: 900px) {
   .nav-links li:not(:last-child) { display: none; }
   .map-body { grid-template-columns: 1fr; }
+  .portrait { height: 340px; }
   .band-grid { grid-template-columns: 1fr; gap: 24px; }
   .contact-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 640px) {
   :root { --gutter: 16px; }
   body { font-size: 17px; }
-  .hero { padding: 44px 0 40px; }
+  .hero { padding: 32px 0 40px; }
+  .hero-top { grid-template-columns: 1fr; gap: 16px; }
+  .portrait { order: -1; height: 220px; }
+  .hero-text { padding: 0 0 32px; }
   .board { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-areas: "host link" "ctrl dram" "nand nand" "power power"; grid-template-rows: none; gap: 12px; padding: 12px; }
   .chip { min-height: 88px; }
   .chip::before, .chip::after { display: none; }
@@ -217,7 +224,7 @@ footer { background: var(--mask-deep); color: var(--mask-text); font-family: var
   .chip { transition: none; }
 }
 @media print {
-  .site-nav, .hero-actions, .map { display: none; }
+  .site-nav, .hero-actions, .map, .portrait { display: none; }
   .hero, .contact { background: none; color: var(--ink); padding: 16px 0; }
   .hero-lead, .contact li a { color: var(--ink); }
   .band { padding: 20px 0; }
@@ -244,12 +251,17 @@ footer { background: var(--mask-deep); color: var(--mask-text); font-family: var
 
 <header class="hero" id="top">
   <div class="wrap">
+    <div class="hero-top">
+      <div class="hero-text">
     <h1>Kumudini<br>Gandesiri</h1>
     <p class="hero-lead">I debug PCIe links and failing boards at AMD, turn test data into root-cause findings, and build AI agents that cut manual analysis. Next, I want to do that work on NAND and SSD products.</p>
     <div class="hero-actions">
       <a class="btn btn-gold" href="Kumudini_Gandesiri_Resume.pdf">View resume</a>
       <a class="btn btn-line" href="mailto:kumudinigandhesiri@gmail.com">Email me</a>
       <a class="btn btn-line" href="https://www.linkedin.com/in/kumudini100/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    </div>
+      </div>
+      <img class="portrait" src="kumudini-portrait.png" width="560" height="853" alt="Illustrated portrait of Kumudini Gandesiri in a grey blazer" />
     </div>
 
     <section class="map" aria-labelledby="map-title">
